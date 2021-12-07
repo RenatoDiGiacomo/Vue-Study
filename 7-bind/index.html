@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V-BIND</title>
+    <style>
+      .corMaior,
+      .corMenor {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .corMaior {
+        color: green;
+      }
+      .corMenor {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+  Utilizando as API's
+  https://api.origamid.dev/stock/aapl/quote
+  https://api.origamid.dev/stock/googl/quote
+
+  - Compare o marketCap (valor de
+  mercado) entre ambas.
+
+  - Mostre o nome das empresas e o valor
+  na interace (companyName e marketCap).
+
+  - Mude a cor para verde o nome da empresa com
+  maior marketCap e vermelho a com menor.
+-->
+    <div id="app">
+      <div class="apple">
+        <h1>
+          Empresa:
+          <span>{{apple.companyName}}</span>
+        </h1>
+        <p>
+          Valor de Mercado:
+          <span
+            :class="apple.marketCap >  googl.marketCap ? 'corMaior' : 'corMenor'  "
+            >{{apple.marketCap}}</span
+          >
+        </p>
+      </div>
+      <div class="google">
+        <h1>
+          Empresa:
+          <span>{{googl.companyName}}</span>
+        </h1>
+        <p>
+          Valor de Mercado:
+          <span
+            :class="googl.marketCap > apple.marketCap ? 'corMaior' : 'corMenor'  "
+            >{{googl.marketCap}}</span
+          >
+        </p>
+      </div>
+      <div class="resultado">
+        <button @click="resultado">Resultado</button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          apple: {},
+          googl: {}
+        },
+        methods: {
+          appl: function () {
+            fetch("https://api.origamid.dev/stock/aapl/quote")
+              .then((response) => response.json())
+              .then((data) => {
+                this.apple = data;
+              });
+          },
+          ggle: function () {
+            fetch("https://api.origamid.dev/stock/googl/quote")
+              .then((response) => response.json())
+              .then((data) => {
+                this.googl = data;
+              });
+          },
+          resultado: function () {
+            this.appl();
+            this.ggle();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

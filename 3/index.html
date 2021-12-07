@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="app/js/vue.js"></script>
+        <link rel="stylesheet" href="app/css/bootstrap4.css" />
+        <title>VUE - Template</title>
+    </head>
+    <body>
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-12">
+                    <div id="app">
+                        <h1>{{titulo}}</h1>
+                        <p>{{comentario}}</p>
+                        <p>{{lado * lado - lado /100}}</p>
+                        <p>{{comprou ? "Sim ele Comprou" : "Não Comprou"}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-12">
+                    <div id="app2">
+                        <p>Cliente Vitalício : {{comprou ? 'Sim comprou' : 'Não Comprou'}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container my-5">
+            <div class="row">
+                <div id="app3" class="col-12">
+                    <span v-if="check">
+                        <p v-bind:style="{color: color}">{{text1}}</p>
+                        <p>{{text2}}</p>
+                        <input type="color" v-model="color">
+                        <p v-bind:style="{color: color}">{{color}}</p>
+                          <!--v-bind pode ser declarado com dois pontos ":" ou declarando v-bind:-->
+                          <a :href="href" target="_blank">{{href}}</a>
+                          <a v-bind:href="href" target="_blank">{{href}}</a>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+        <script src="app/js/jquery.js"></script>
+        <script src="app/js/popper.js"></script>
+        <script src="app/js/bootstrap4.js"></script>
+        <script src="app/js/index.js"></script>
+        
+    </body>
+</html>

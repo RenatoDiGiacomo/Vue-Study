@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="app/js/vue.js"></script>
+        <link rel="stylesheet" href="app/css/bootstrap4.css" />
+        <title>VUE - data</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div id="app1">
+                        <h1>{{titulo}}</h1>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div id="app2">
+                        <h1>{{logado}}</h1>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div id="appex">{{empresa}}, {{produto}}</div>
+                </div>
+                <div class="col-12">
+                    <div id="appLado">
+                        <input type="number" v-model="lado">
+                        <p>Lado: {{lado}}</p>
+                        <p>Perímetro: {{lado * 4}}</p>
+                        <p>Area: {{lado * lado}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="app/js/jquery.js"></script>
+        <script src="app/js/popper.js"></script>
+        <script src="app/js/bootstrap4.js"></script>
+        <script src="app/js/index.js"></script>
+    </body>
+</html>

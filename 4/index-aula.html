@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="app/js/vue.js"></script>
+        <link rel="stylesheet" href="app/css/bootstrap4.css" />
+        <title>VUE</title>
+    </head>
+    <body>
+   <div id="app">
+       <span>{{nomeProduto}}</span>
+       <p :style="{color:color}">{{color}}</p>
+       <input type="color" v-model="color">
+   </div>
+        <script src="app/js/jquery.js"></script>
+        <script src="app/js/popper.js"></script>
+        <script src="app/js/bootstrap4.js"></script>
+        <script src="app/js/index.js"></script>
+    </body>
+</html>

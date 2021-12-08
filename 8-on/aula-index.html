@@ -38,12 +38,18 @@
             <p :class="ativo ? 'verde' : 'vermelho'">Texto</p>
           </div>
         </div>
+        <div class="row">
+          <div class="col">
+            <input type="text" @keyup.enter="keyPress">
+            <p>{{tecla}}</p>
+          </div>
+        </div>
       </div>
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <p @mousemove="movimentoMouse">Mouse-X: {{mouse.x}}</p>
-            <p @mousemove="movimentoMouse">Mouse-Y: {{mouse.y}}</p>
+            <p class="border" @mousemove="movimentoMouse">Mouse-X: {{mouse.x}}</p>
+            <p class="border" @mousemove="movimentoMouse">Mouse-Y: {{mouse.y}}</p>
           </div>
         </div>
       </div>
@@ -71,7 +77,8 @@
         data: {
           contador: 0,
           ativo: true,
-          mouse: ""
+          mouse: "",
+          tecla:""
         },
         methods: {
           handleClick(event) {
@@ -79,6 +86,10 @@
           },
           movimentoMouse(event) {
             this.mouse = event;
+          },
+          keyPress(event){
+            console.log(event.key)
+            this.tecla = event.key.f
           }
         }
       });
